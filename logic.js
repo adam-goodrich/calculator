@@ -1,4 +1,4 @@
-let num1 = 0;
+            let num1 = 0;
             let num2 = 0;
             let operator;
             let storedNum;
@@ -9,11 +9,27 @@ let num1 = 0;
             let num1Assigned = false;
             let num2Assigned = false;
             let operatorTrue = false;
+            let d = new Date(); // for now
+            let currentTime = d.getHours(); // => 9
+            let greeting;
+            if (currentTime < 12 && currentTime > 5) {
+                greeting = "Good Morning!"
+            } else if (currentTime < 17) {
+                greeting = "Good Afternoon!"
+            } else {
+                greeting = "Good Evening!"
+            }
+            console.log(currentTime)
+            const AllButtons = Array.from(document.querySelectorAll('button'));
+            AllButtons.forEach(button => button.disabled = true, true);
             
             const container = document.querySelector('#display');
             const display = document.createElement('div');
             display.classList.add('display');
-            display.textContent = 0;
+            display.textContent = greeting
+            setTimeout(function(){ display.textContent = "Let's do some math!"; }, 3000);
+            setTimeout(function(){ display.textContent = 0; }, 6000);
+            setTimeout(function(){ AllButtons.forEach(button => button.disabled = false, true); }, 6000); 
             display.style.padding = "2px"
             container.appendChild(display)
 
@@ -47,6 +63,11 @@ let num1 = 0;
                     result = operate(num1, num2, operator);
                     operator = this.id;
                     display.innerHTML = result;
+                    if (result == "Ouch, you broke me") {
+                        setTimeout(function(){ display.textContent = "Resetting..."; }, 2000);
+                        setTimeout(function(){ clear() }, 3500);
+                        return
+                    }
                     num1 = result;
                     num2Assigned = false;
                 }
@@ -63,6 +84,11 @@ let num1 = 0;
                 if (num1Assigned && num2Assigned) {
                     result = operate(num1, num2, operator);
                     display.innerHTML = result;
+                    if (result == "Ouch, you broke me") {
+                        setTimeout(function(){ display.textContent = "Resetting..."; }, 2000);
+                        setTimeout(function(){ clear() }, 3500);
+                        return
+                    }
                     num1 = result;
                     num2Assigned = false;
                 } else {
@@ -84,7 +110,8 @@ let num1 = 0;
                 totalNum = "";
                 num1Assigned = false;
                 num2Assigned = false;
-                display.textContent = num1;
+                display.textContent = "All Clear!"
+                setTimeout(function(){ display.textContent = 0; }, 1500);
                 document.querySelector('.item1').innerHTML = "AC";
                 containtsDot = false;
 
@@ -213,7 +240,7 @@ let num1 = 0;
                         num1 = 0;
                         num2 = 0;
                         operator = ""
-                        return "Error"
+                        return "Ouch, you broke me"
                     } 
                     answer = divide(num1, num2);
                 }
