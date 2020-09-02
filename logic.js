@@ -21,7 +21,6 @@
             } else {
                 greeting = "Wow it's late!"
             }
-            console.log(currentTime)
             const AllButtons = Array.from(document.querySelectorAll('button'));
             AllButtons.forEach(button => button.disabled = true, true);
             
@@ -258,7 +257,10 @@
                 if (e.keyCode == 13) {
                     const keyboardButton = document.querySelector(`button[data-key="187"]`);
                     keyboardButton.click()
-                    return
+                    keyboardButton.style.background = "grey"
+                    keyboardButton.style.color = "white"
+                    setTimeout(function(){ keyboardButton.style.background = null }, 100);
+                    setTimeout(function(){ keyboardButton.style.color = null }, 100);                    
                 }
 
                 if ((e.keyCode == 8 | e.keyCode == 46) && equalTrue == false) {
@@ -278,6 +280,11 @@
                     }
                 }
                 const keyboardButton = document.querySelector(`button[data-key="${e.keyCode}"]`);
-                keyboardButton.click()
-                keyboardButton.classList.add("button:active");
+                keyboardButton.click();
+                keyboardButton.style.background = "grey"
+                keyboardButton.style.color = "white"
+                setTimeout(function(){ keyboardButton.style.background = null }, 100);
+                setTimeout(function(){ keyboardButton.style.color = null }, 100);
+
+
             });
