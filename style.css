@@ -1,0 +1,222 @@
+
+body, html {
+    background-color: antiquewhite;
+    margin: 0; /* remove default margin */
+    padding: 0; /* remove default padding */
+    width: 100%; /* take full browser width */
+    height: 100%; /* take full browser height*/
+}
+
+.item1 { grid-area: clear; }
+.item2 { grid-area: plusMinus; }
+.item3 { grid-area: percent; }
+.item4 { grid-area: divide; }
+.item5 { grid-area: seven; }
+.item6 { grid-area: eight; }
+.item7 { grid-area: nine; }
+.item8 { grid-area: multi; }
+.item9 { grid-area: four; }
+.item10 { grid-area: five; }
+.item11 { grid-area: six; }
+.item12 { grid-area: minus; }
+.item13 { grid-area: one; }
+.item14 { grid-area: two; }
+.item15 { grid-area: three; }
+.item16 { grid-area: plus; }
+.item17 { grid-area: num0; }
+.item18 { grid-area: deci; }
+.item19 { grid-area: equal; }
+.item20 { grid-area: display;}
+
+
+
+.item20 {
+    background-color: lightgrey;
+    padding: 0px 10px;
+    text-align: right;
+    justify-content: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    margin: auto;
+    width: 95%;
+    height: 22px;
+    padding: 8px;
+    border-style: inset;
+    font-family: 'Press Start 2P', monospace; 
+    border-color: rgb(113, 113, 113);           
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        'display display display display'
+        'clear plusMinus percent divide'
+        'seven eight nine multi'
+        'four five six minus'
+        'one two three plus'
+        'num0 num0 deci equal';
+    grid-gap: 2px;
+    background-color: rgb(237, 237, 237);
+    padding: 10px;
+    height: 500px;
+    width: 490px;
+    border-radius: 8px;
+    border-style: solid;
+    box-shadow: 3px 5px rgb(68, 68, 68);;
+    border-color: rgb(31, 31, 31);
+}
+
+button {
+    width: 119px;
+    background-color: lightgrey;
+    border: none;
+    color: black;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: solid;
+    border-color: rgb(31, 31, 31);
+}
+
+button.operator {
+    width: 119px;
+    background-color: orange;
+    border: none;
+    color: black;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: solid;
+    border-color: rgb(31, 31, 31);
+}
+
+button.equalSign {
+    width: 119px;
+    background-color: orange;
+    border: none;
+    color: black;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: solid;
+    border-color: rgb(31, 31, 31);
+    border-bottom-right-radius: 8px;
+}
+
+button.other {
+    width: 119px;
+    background-color: rgb(184, 184, 184);
+    border: none;
+    color: black;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: solid;
+    border-color: rgb(31, 31, 31);
+}
+
+button:active {
+    background-color: rgb(198, 198, 198);
+    color: whitesmoke;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: inset;
+    border-color: rgb(31, 31, 31);
+}
+
+button.operator:active {
+    background-color: rgb(182, 122, 10);
+    color: whitesmoke;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: inset;
+    border-color: rgb(31, 31, 31);
+}
+
+button.equalSign:active {
+    background-color: rgb(182, 122, 10);
+    color: whitesmoke;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: inset;
+    border-color: rgb(31, 31, 31);
+    border-bottom-right-radius: 8px;
+
+}
+
+.item17 {
+    width: 243px;
+    background-color: lightgrey;
+    color: black;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-color: rgb(58, 58, 58);
+    border-bottom-left-radius: 8px;
+
+}
+
+button:active {
+    background-color: grey;
+    color: whitesmoke;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    border-style: inset;
+    border-color: rgb(31, 31, 31);
+
+}
+
+
+.container {
+    padding-top: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.footer {
+    padding-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 1;
+}
+
+footer {
+    display: block;
+    text-align: center;
+}
