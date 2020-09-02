@@ -16,8 +16,10 @@
                 greeting = "Good Morning!"
             } else if (currentTime < 17) {
                 greeting = "Good Afternoon!"
-            } else {
+            } else if (currentTime < 24) {
                 greeting = "Good Evening!"
+            } else {
+                greeting = "Wow it's late!"
             }
             console.log(currentTime)
             const AllButtons = Array.from(document.querySelectorAll('button'));
