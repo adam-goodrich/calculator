@@ -36,7 +36,7 @@ let num1 = 0;
             Button.forEach(button => button.addEventListener('click', function(e) {
 
                 storedNum = display.innerHTML;
-                
+
                 if (!num1Assigned) {
                     num1 = storedNum;
                     num1Assigned = true;
@@ -187,7 +187,11 @@ let num1 = 0;
                 let currentNum = parseFloat(display.innerHTML);
                 display.textContent = round((currentNum * .01), 14);
                 storedNum = round((currentNum * .01), 16);
-                num1 = round((currentNum * .01), 16);
+                if (!num1Assigned) {
+                    num1 = storedNum;
+                } else {
+                    num2 = storedNum;
+                }             
             }
 
             function round(num, decimalPlaces) {
