@@ -9,8 +9,8 @@
             let num1Assigned = false;
             let num2Assigned = false;
             let operatorTrue = false;
-            let d = new Date(); // for now
-            let currentTime = d.getHours(); // => 9
+            let d = new Date();
+            let currentTime = d.getHours();
             let greeting;
             if (currentTime < 12 && currentTime > 5) {
                 greeting = "Good Morning!"
@@ -254,8 +254,8 @@
             }
 
             window.addEventListener('keydown', function (e) {
-                if (e.keyCode == 13) {
-                    const keyboardButton = document.querySelector(`button[data-key="187"]`);
+                if (e.key == "Enter") {
+                    const keyboardButton = document.querySelector(`button[data-key="="]`);
                     keyboardButton.click()
                     keyboardButton.style.background = "grey"
                     keyboardButton.style.color = "white"
@@ -279,7 +279,7 @@
                         //pass
                     }
                 }
-                const keyboardButton = document.querySelector(`button[data-key="${e.keyCode}"]`);
+                const keyboardButton = document.querySelector(`button[data-key="${e.key}"]`);
                 keyboardButton.click();
                 keyboardButton.style.background = "grey"
                 keyboardButton.style.color = "white"
