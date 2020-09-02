@@ -258,6 +258,24 @@
                     keyboardButton.click()
                     return
                 }
+
+                if ((e.keyCode == 8 | e.keyCode == 46) && equalTrue == false) {
+                    try {
+                        let displayedNum = display.innerHTML;
+                        console.log(displayedNum)
+                        displayedNum.toString()
+                        displayedNum = displayedNum.substring(0, displayedNum.length - 1);
+                        display.innerHTML = displayedNum
+                        storedNum = displayedNum
+                        totalNum = displayedNum
+                        if (displayedNum.length == 0) {
+                            display.innerHTML = 0
+                        }
+                    } catch (TypeError) {
+                        //pass
+                    }
+                }
                 const keyboardButton = document.querySelector(`button[data-key="${e.keyCode}"]`);
                 keyboardButton.click()
+                keyboardButton.classList.add("button:active");
             });
