@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel=# href=# />
+        <link rel=# href=#>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap')</style>
+        <style>
+            
+            .item1 { grid-area: clear; }
+            .item2 { grid-area: plusMinus; }
+            .item3 { grid-area: percent; }
+            .item4 { grid-area: divide; }
+            .item5 { grid-area: seven; }
+            .item6 { grid-area: eight; }
+            .item7 { grid-area: nine; }
+            .item8 { grid-area: multi; }
+            .item9 { grid-area: four; }
+            .item10 { grid-area: five; }
+            .item11 { grid-area: six; }
+            .item12 { grid-area: minus; }
+            .item13 { grid-area: one; }
+            .item14 { grid-area: two; }
+            .item15 { grid-area: three; }
+            .item16 { grid-area: plus; }
+            .item17 { grid-area: num0; }
+            .item18 { grid-area: deci; }
+            .item19 { grid-area: equal; }
+            .item20 { grid-area: display;}
+
+            body, html {
+                background-color: antiquewhite;
+                margin:0; /* remove default margin */
+                padding:0; /* remove default padding */
+                width:100%; /* take full browser width */
+                height:100%; /* take full browser height*/
+            }
+            
+            .item20 {
+                background-color: lightgrey;
+                padding: 0px 10px;
+                text-align: right;
+                justify-content: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                margin: auto;
+                width: 95%;
+                height: 22px;
+                padding: 8px;
+                border-style: inset;
+                font-family: 'Press Start 2P', monospace; 
+                border-color: rgb(31, 31, 31);           
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-areas: 
+                    'display display display display'
+                    'clear plusMinus percent divide'
+                    'seven eight nine multi'
+                    'four five six minus'
+                    'one two three plus'
+                    'num0 num0 deci equal';
+                grid-gap: 2px;
+                background-color: rgb(237, 237, 237);
+                padding: 10px;
+                height: 500px;
+                width: 490px;
+                border-radius: 8px;
+                border-style: solid;
+                box-shadow: 3px 5px rgb(31, 31, 31);;
+                border-color: rgb(31, 31, 31);
+            }
+
+            button {
+                width: 119px;
+                background-color: lightgrey;
+                border: none;
+                color: black;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: solid;
+                border-color: rgb(31, 31, 31);
+            }
+
+            button.operator {
+                width: 119px;
+                background-color: orange;
+                border: none;
+                color: black;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: solid;
+                border-color: rgb(31, 31, 31);
+            }
+
+            button.equalSign {
+                width: 119px;
+                background-color: orange;
+                border: none;
+                color: black;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: solid;
+                border-color: rgb(31, 31, 31);
+                border-bottom-right-radius: 8px;
+            }
+
+            button.other {
+                width: 119px;
+                background-color: rgb(154, 154, 154);
+                border: none;
+                color: black;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: solid;
+                border-color: rgb(31, 31, 31);
+                border-bottom-right-radius: 8px;
+            }
+
+            button:active {
+                background-color: rgb(198, 198, 198);
+                color: whitesmoke;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: inset;
+                border-color: rgb(31, 31, 31);
+            }
+
+            button.operator:active {
+                background-color: rgb(182, 122, 10);
+                color: whitesmoke;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: inset;
+                border-color: rgb(31, 31, 31);
+            }
+
+            button.equalSign:active {
+                background-color: rgb(182, 122, 10);
+                color: whitesmoke;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: inset;
+                border-color: rgb(31, 31, 31);
+                border-bottom-right-radius: 8px;
+
+            }
+
+            .item17 {
+                width: 243px;
+                background-color: lightgrey;
+                color: black;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-color: rgb(31, 31, 31);
+                border-bottom-left-radius: 8px;
+
+            }
+
+            button:active {
+                background-color: grey;
+                color: whitesmoke;
+                padding: 15px 36px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                outline: none;
+                border-style: inset;
+                border-color: rgb(31, 31, 31);
+
+            }
+
+            
+            .container {
+                padding-top: 15vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
+            .footer {
+                padding-top: 2vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Press Start 2P', monospace; 
+                font-size: 1;
+            }
+
+            footer {
+                display: block;
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="grid-container">
+                <div class="item20" id="display">
+                </div>
+                <button class="item1 other" id="clear">AC</button>
+                <button class="item2 other reverse">+ / -</button>
+                <button class="item3 other percentBut">%</button>
+                <button class="item4 operator" id="/">÷</button>
+                <button class="item5 number" id="7">7</button>
+                <button class="item6 number" id="8">8</button>
+                <button class="item7 number" id="9">9</button>
+                <button class="item8 operator" id="*">x</button>
+                <button class="item9 number" id="4">4</button>
+                <button class="item10 number" id="5">5</button>
+                <button class="item11 number" id="6">6</button>
+                <button class="item12 operator" id="-">-</button>
+                <button class="item13 number" id="1">1</button>
+                <button class="item14 number" id="2">2</button>
+                <button class="item15 number" id="3">3</button>
+                <button class="item16 operator" id="+">+</button>
+                <button class="item17 number" id="0">0</button>
+                <button class="item18 number" id=".">.</button>
+                <button class="item19 equalSign" id="=">=</button>
+            </div>
+        </div>
+        <div class="footer">
+            <footer>
+                <p>Created By Adam Goodrich</p>
+                <p>view on <a href="https://github.com/adam-goodrich/rock-paper-scissors" target=”_blank”>Github</a></p>
+            </footer>
+        </div>
+        <script>
+            let num1 = 0;
+            let num2 = 0;
+            let operator;
+            let storedNum;
+            let result;
+            let equalTrue = false;
+            let containtsDot = false;
+            let totalNum = "";
+            let num1Assigned = false;
+            let num2Assigned = false;
+            let operatorTrue = false;
+            
+            const container = document.querySelector('#display');
+            const display = document.createElement('div');
+            display.classList.add('display');
+            display.textContent = 0;
+            display.style.padding = "2px"
+            container.appendChild(display)
+
+            const numberButtons = Array.from(document.querySelectorAll('.number'));
+            numberButtons.forEach(button => button.addEventListener('click', numberSelector, true));
+
+            const reverse = Array.from(document.querySelectorAll('.reverse'));
+            reverse.forEach(button => button.addEventListener('click', reverseNum, true));
+
+            const percentClick = Array.from(document.querySelectorAll('.percentBut'));
+            percentClick.forEach(button => button.addEventListener('click', percentButton, true));
+
+            const equalSign = document.querySelector('.equalSign');
+            equalSign.addEventListener('click', performEquation, false);
+
+            const clearButton = document.querySelector('#clear');
+            clearButton.addEventListener('click', clear, false);
+
+            const Button = Array.from(document.querySelectorAll('.operator'));
+            Button.forEach(button => button.addEventListener('click', function(e) {
+
+                storedNum = display.innerHTML;
+                
+                if (!num1Assigned) {
+                    num1 = storedNum;
+                    num1Assigned = true;
+                    return;
+                }
+
+                if (num1Assigned && num2Assigned) {
+                    result = operate(num1, num2, operator);
+                    operator = this.id;
+                    display.innerHTML = result;
+                    num1 = result;
+                    num2Assigned = false;
+                }
+                
+            }, false))
+
+            const operators = Array.from(document.querySelectorAll('.operator'));
+            operators.forEach(button => button.addEventListener('click', operatorSelector, true));
+
+            function performEquation() {
+
+                num2 = storedNum;
+                num2Assigned = true;
+                if (num1Assigned && num2Assigned) {
+                    result = operate(num1, num2, operator);
+                    display.innerHTML = result;
+                    num1 = result;
+                    num2Assigned = false;
+                } else {
+                    //pass;
+                }
+
+                equalTrue = true;
+                containtsDot = false;
+
+            }
+
+            function clear() {
+                num1 = 0;
+                num2 = 0;
+                operator = "";
+                storedNum = "";
+                result = "";
+                equalTrue = false;
+                totalNum = "";
+                num1Assigned = false;
+                num2Assigned = false;
+                display.textContent = num1;
+                document.querySelector('.item1').innerHTML = "AC";
+                containtsDot = false;
+
+            }
+
+
+            function numberSelector() {
+                if (totalNum.length > 14) {                    
+                    return;
+                }
+
+                if (this.id == "." && containtsDot) {
+                    return;
+                }
+                if (this.id == "." ) {
+                    containtsDot = true;
+                }
+                
+                if (equalTrue) {
+                    clear();
+                    document.querySelector('.item1').innerHTML = "C";
+                    display.innerHTML = this.id;
+                    if (display.innerHTML == ".") {
+                        display.innerHTML = "0.";
+                        totalNum = "0.";
+                    }
+
+                    return;
+                }
+
+                display.textContent = "";
+                totalNum += this.id;
+
+                if (totalNum[0] == ".") {
+                    totalNum = "0.";
+                }
+                
+
+                display.textContent = totalNum;
+                storedNum = display.innerHTML;
+
+                if (num1Assigned && !num2Assigned) {
+                    num2 = storedNum;
+                    num2Assigned = true;
+                    return;
+                }
+                document.querySelector('.item1').innerHTML = "C"
+                return parseFloat(totalNum);
+            }
+
+            function operatorSelector() {
+                containtsDot = false;
+                totalNum = "";
+                operator = this.id;
+                equalTrue = false;
+                return this.id;
+            }
+
+            function reverseNum() {
+                if (equalTrue) {
+                    num1Assigned = false;
+                    num2Assigned = false;
+                }
+                equalTrue = false
+                let currentNum = parseFloat(display.innerHTML);
+                if (currentNum < 0) {
+                    currentNum += Math.abs(currentNum * 2);
+                    display.textContent = currentNum;
+                } else {
+                    currentNum -= (currentNum * 2);
+                    display.textContent = currentNum;
+                }
+                if (!num1Assigned) {
+                    num1 = currentNum;
+                } else {
+                    num2 = currentNum;
+                    storedNum = num2;
+                }    
+            }
+
+            function add(num1, num2) {
+                return parseFloat(num1) + parseFloat(num2);
+            }
+
+            function subtract(num1, num2) {
+                return parseFloat(num1) - parseFloat(num2);
+            }
+
+            function multiply(num1, num2) {
+                return parseFloat(num1) * parseFloat(num2);
+            }
+
+            function divide(num1, num2) {
+
+                return parseFloat(num1) / parseFloat(num2);
+            }
+
+            function percentButton() {
+                equalTrue = false;
+                let currentNum = parseFloat(display.innerHTML);
+                display.textContent = round((currentNum * .01), 14);
+                storedNum = round((currentNum * .01), 16);
+                num1 = round((currentNum * .01), 16);
+            }
+
+            function round(num, decimalPlaces) {
+                var p = Math.pow(10, decimalPlaces);
+                return Math.round(num * p) / p;
+            }
+
+            function operate(num1, num2, operator) {
+                let answer;
+                if (operator == "+") {
+                    answer = add(num1, num2);
+                } else if (operator == "-") {
+                    answer = subtract(num1, num2);
+                } else if (operator == "*") {
+                    answer = multiply(num1, num2);
+                } else if (operator == "/") {
+                    if (num2 == 0) {  
+                        totalNum = "";   
+                        num1 = 0;
+                        num2 = 0;
+                        operator = ""
+                        return "Error"
+                    } 
+                    answer = divide(num1, num2);
+                }
+
+                return round(answer, 14)
+            }
+
+        </script>
+    </body>
+</html>
