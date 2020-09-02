@@ -239,6 +239,7 @@
                     answer = multiply(num1, num2);
                 } else if (operator == "/") {
                     if (num2 == 0) {  
+                        AllButtons.forEach(button => button.disabled = true, true);
                         totalNum = "";   
                         num1 = 0;
                         num2 = 0;
@@ -250,3 +251,13 @@
 
                 return round(answer, 14)
             }
+
+            window.addEventListener('keydown', function (e) {
+                if (e.keyCode == 13) {
+                    const keyboardButton = document.querySelector(`button[data-key="187"]`);
+                    keyboardButton.click()
+                    return
+                }
+                const keyboardButton = document.querySelector(`button[data-key="${e.keyCode}"]`);
+                keyboardButton.click()
+            });
