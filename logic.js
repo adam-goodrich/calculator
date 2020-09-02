@@ -66,6 +66,7 @@
                     if (result == "Ouch, you broke me") {
                         setTimeout(function(){ display.textContent = "Resetting..."; }, 2000);
                         setTimeout(function(){ clear() }, 3500);
+                        AllButtons.forEach(button => button.disabled = true, true);
                         return
                     }
                     num1 = result;
@@ -101,6 +102,7 @@
             }
 
             function clear() {
+                AllButtons.forEach(button => button.disabled = true, true);
                 num1 = 0;
                 num2 = 0;
                 operator = "";
@@ -111,7 +113,8 @@
                 num1Assigned = false;
                 num2Assigned = false;
                 display.textContent = "All Clear!"
-                setTimeout(function(){ display.textContent = 0; }, 1500);
+                setTimeout(function(){ display.textContent = 0; }, 1000);
+                setTimeout(function(){ AllButtons.forEach(button => button.disabled = false, true); }, 1000);
                 document.querySelector('.item1').innerHTML = "AC";
                 containtsDot = false;
 
