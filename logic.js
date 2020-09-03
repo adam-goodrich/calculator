@@ -64,7 +64,7 @@
                         setTimeout(function(){ display.textContent = "Resetting..."; }, 2000);
                         setTimeout(function(){ clear() }, 3500);
                         AllButtons.forEach(button => button.disabled = true, true);
-                        return
+                        return;
                     }
                     num1 = result;
                     num2Assigned = false;
@@ -88,7 +88,7 @@
                     if (result == "Ouch, you broke me") {
                         setTimeout(function(){ display.textContent = "Resetting..."; }, 2000);
                         setTimeout(function(){ clear() }, 3500);
-                        return
+                        return;
                     }
                     num1 = result;
                     num2Assigned = false;
@@ -112,7 +112,7 @@
                 totalNum = "";
                 num1Assigned = false;
                 num2Assigned = false;
-                display.textContent = "All Clear!"
+                display.textContent = "All Clear!";
                 setTimeout(function(){ display.textContent = 0; }, 1000);
                 setTimeout(function(){ AllButtons.forEach(button => button.disabled = false, true); }, 1000);
                 document.querySelector('.item1').innerHTML = "AC";
@@ -161,7 +161,7 @@
                     num2Assigned = true;
                     return;
                 }
-                document.querySelector('.item1').innerHTML = "C"
+                document.querySelector('.item1').innerHTML = "C";
                 return parseFloat(totalNum);
             }
 
@@ -178,7 +178,7 @@
                     num1Assigned = false;
                     num2Assigned = false;
                 }
-                equalTrue = false
+                equalTrue = false;
                 let currentNum = parseFloat(display.innerHTML);
                 if (currentNum < 0) {
                     currentNum += Math.abs(currentNum * 2);
@@ -215,22 +215,25 @@
             }
 
             function deleteButton() {
+                if (equalTrue) {
+                    return;
+                }
                 let displayedNum = display.innerHTML;
-                console.log(displayedNum)
-                displayedNum.toString()
+                console.log(displayedNum);
+                displayedNum.toString();
                 displayedNum = displayedNum.substring(0, displayedNum.length - 1);
-                display.innerHTML = displayedNum
-                storedNum = displayedNum
-                totalNum = displayedNum
+                display.innerHTML = displayedNum;
+                storedNum = displayedNum;
+                totalNum = displayedNum;
                 if (displayedNum.length == 0) {
-                    display.innerHTML = 0
-                    storedNum = display.innerHTML
-                    totalNum = display.innerHTML
+                    display.innerHTML = 0;
+                    storedNum = display.innerHTML;
+                    totalNum = display.innerHTML;
                 }   
                 if (display.innerHTML == "-") {
-                    display.innerHTML = 0
-                    storedNum = display.innerHTML
-                    totalNum = display.innerHTML
+                    display.innerHTML = 0;
+                    storedNum = display.innerHTML;
+                    totalNum = display.innerHTML;
                 }   
                 if (!num2Assigned && displayedNum.length == 0) {
                     document.querySelector('.item1').innerHTML = "AC";
@@ -257,19 +260,19 @@
                         totalNum = "";   
                         num1 = 0;
                         num2 = 0;
-                        operator = ""
-                        return "Ouch, you broke me"
+                        operator = "";
+                        return "Ouch, you broke me";
                     } 
                     answer = divide(num1, num2);
                 }
 
-                return round(answer, 14)
+                return round(answer, 14);
             }
 
             window.addEventListener('keydown', function (e) {
                 if (e.key == "Enter") {
                     const keyboardButton = document.querySelector(`button[data-key="="]`);
-                    keyboardButton.click()
+                    keyboardButton.click();
                     keyboardButton.style.background = "grey"
                     keyboardButton.style.color = "white"
                     setTimeout(function(){ keyboardButton.style.background = null }, 100);
@@ -279,23 +282,23 @@
                 if ((e.keyCode == 8 | e.keyCode == 46) && equalTrue == false) {
                     try {
                         let displayedNum = display.innerHTML;
-                        console.log(displayedNum)
-                        displayedNum.toString()
+                        console.log(displayedNum);
+                        displayedNum.toString();
                         displayedNum = displayedNum.substring(0, displayedNum.length - 1);
-                        display.innerHTML = displayedNum
-                        storedNum = displayedNum
-                        totalNum = displayedNum
+                        display.innerHTML = displayedNum;
+                        storedNum = displayedNum;
+                        totalNum = displayedNum;
                         if (displayedNum.length == 0) {
-                            display.innerHTML = 0
+                            display.innerHTML = 0;
                         }
                     } catch (TypeError) {
-                        //pass
+                        //pass;
                     }
                 }
                 const keyboardButton = document.querySelector(`button[data-key="${e.key}"]`);
                 keyboardButton.click();
-                keyboardButton.style.background = "grey"
-                keyboardButton.style.color = "white"
+                keyboardButton.style.background = "grey";
+                keyboardButton.style.color = "white";
                 setTimeout(function(){ keyboardButton.style.background = null }, 100);
                 setTimeout(function(){ keyboardButton.style.color = null }, 100);
 
