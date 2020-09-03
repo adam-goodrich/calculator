@@ -189,6 +189,7 @@
                 }
                 if (!num1Assigned) {
                     num1 = currentNum;
+                    storedNum = num1;
                 } else {
                     num2 = currentNum;
                     storedNum = num2;
