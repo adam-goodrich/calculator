@@ -290,6 +290,8 @@
                         totalNum = displayedNum;
                         if (displayedNum.length == 0) {
                             display.innerHTML = 0;
+                            storedNum = display.innerHTML;
+                            totalNum = storedNum;
                         }
                     } catch (TypeError) {
                         //pass;
