@@ -238,12 +238,6 @@ footer {
     text-align: center;
 }
 
-.note {
-    font-family: 'Press Start 2P', monospace; 
-    font-size: 8px;
-    padding-left: 10px;
-}
-
 @media only screen and (max-width: 500px) {
     body, html {
         background-color: antiquewhite;
@@ -480,12 +474,6 @@ footer {
     footer {
         display: block;
         text-align: center;
-    }
-    
-    .note {
-        font-family: 'Press Start 2P', monospace; 
-        font-size: 0px;
-        padding-left: 10px;
     }
 
     .display {

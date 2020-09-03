@@ -39,9 +39,6 @@
             const reverse = Array.from(document.querySelectorAll('.reverse'));
             reverse.forEach(button => button.addEventListener('click', reverseNum, true));
 
-            const percentClick = Array.from(document.querySelectorAll('.percentBut'));
-            percentClick.forEach(button => button.addEventListener('click', percentButton, true));
-
             const equalSign = document.querySelector('.equalSign');
             equalSign.addEventListener('click', performEquation, false);
 
@@ -77,6 +74,9 @@
 
             const operators = Array.from(document.querySelectorAll('.operator'));
             operators.forEach(button => button.addEventListener('click', operatorSelector, true));
+
+            const percentClick = Array.from(document.querySelectorAll('.percentBut'));
+            percentClick.forEach(button => button.addEventListener('click', deleteButton, true));
 
             function performEquation() {
 
@@ -189,7 +189,8 @@
                 }
                 if (!num1Assigned) {
                     num1 = currentNum;
-                    storedNum = num1;
+                    storedNum = num2;
+
                 } else {
                     num2 = currentNum;
                     storedNum = num2;
@@ -213,16 +214,28 @@
                 return parseFloat(num1) / parseFloat(num2);
             }
 
-            function percentButton() {
-                equalTrue = false;
-                let currentNum = parseFloat(display.innerHTML);
-                display.textContent = round((currentNum * .01), 14);
-                storedNum = round((currentNum * .01), 16);
-                if (!num1Assigned) {
-                    num1 = storedNum;
-                } else {
-                    num2 = storedNum;
-                }             
+            function deleteButton() {
+                let displayedNum = display.innerHTML;
+                console.log(displayedNum)
+                displayedNum.toString()
+                displayedNum = displayedNum.substring(0, displayedNum.length - 1);
+                display.innerHTML = displayedNum
+                storedNum = displayedNum
+                totalNum = displayedNum
+                if (displayedNum.length == 0) {
+                    display.innerHTML = 0
+                    storedNum = display.innerHTML
+                    totalNum = display.innerHTML
+                }   
+                if (display.innerHTML == "-") {
+                    display.innerHTML = 0
+                    storedNum = display.innerHTML
+                    totalNum = display.innerHTML
+                }   
+                if (!num2Assigned && displayedNum.length == 0) {
+                    document.querySelector('.item1').innerHTML = "AC";
+
+                }
             }
 
             function round(num, decimalPlaces) {
