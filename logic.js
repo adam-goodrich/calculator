@@ -31,7 +31,6 @@
             setTimeout(function(){ display.textContent = "Let's do some math!"; }, 3000);
             setTimeout(function(){ display.textContent = 0; }, 6000);
             setTimeout(function(){ AllButtons.forEach(button => button.disabled = false, true); }, 6000); 
-            display.style.padding = "2px"
             container.appendChild(display)
 
             const numberButtons = Array.from(document.querySelectorAll('.number'));
