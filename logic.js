@@ -52,12 +52,13 @@
                 storedNum = display.innerHTML;
 
                 if (!num1Assigned) {
+                    console.log(storedNum)
+
                     num1 = storedNum;
                     num1Assigned = true;
                     return;
                 } else {
                     num2 = storedNum;
-                    num2Assigned = true;
                 }
 
                 if (num1Assigned && num2Assigned) {
