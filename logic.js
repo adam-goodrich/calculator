@@ -47,6 +47,7 @@
 
             const Button = Array.from(document.querySelectorAll('.operator'));
             Button.forEach(button => button.addEventListener('click', function(e) {
+                console.log(storedNum)
 
                 storedNum = display.innerHTML;
 
@@ -54,6 +55,9 @@
                     num1 = storedNum;
                     num1Assigned = true;
                     return;
+                } else {
+                    num2 = storedNum;
+                    num2Assigned = true;
                 }
 
                 if (num1Assigned && num2Assigned) {
@@ -79,7 +83,7 @@
             percentClick.forEach(button => button.addEventListener('click', deleteButton, true));
 
             function performEquation() {
-
+                console.log(storedNum)
                 num2 = storedNum;
                 num2Assigned = true;
                 if (num1Assigned && num2Assigned) {
